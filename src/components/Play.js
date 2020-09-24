@@ -8,7 +8,7 @@ export class Play extends React.Component {
     super(props)
 
     this.state = {
-      players:[],
+      players: [],
       tricks: ["ollie", "nollie", "FS 180", "BS 180", "FS pop shuv", "BS pop shuv", "kickflip", "heelflip"],
       randomTrick: [], 
       inputtingNewPlayer: false,
@@ -22,13 +22,13 @@ export class Play extends React.Component {
   }
 
 
-  createPlayer(){
-    const playerName = this.myRef.current;;
+  createPlayer(playerName){
     let newPlayer = {
       name: playerName
-    }
-    let playersList = this.state.players.push(newPlayer)
-    return this.setState({players: playersList})
+    };
+    let currentPlayers = this.state.players;
+
+    return this.setState({players: currentPlayers.concat(newPlayer)})
   }
 
   changeInputState(){

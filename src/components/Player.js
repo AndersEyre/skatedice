@@ -4,7 +4,7 @@ export const Player = (props) => {
 
         return (
             <div>
-                <h2>{this.props.player.name}</h2>
+                <h2>{props.player.name}</h2>
                 <h3>0</h3>
                 <button> - </button>
                 <button> + </button>
