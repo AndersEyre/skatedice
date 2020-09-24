@@ -1,14 +1,14 @@
 import React from "react";
 import {Player} from "./Player";
 import "../styles/css/Play.css";
-import inputNewPlayer from "./inputNewPlayer";
+import InputNewPlayer from "./InputNewPlayer";
 
 export class Play extends React.Component {
   constructor(props){
     super(props)
 
     this.state = {
-      players: [],
+      players:[],
       tricks: ["ollie", "nollie", "FS 180", "BS 180", "FS pop shuv", "BS pop shuv", "kickflip", "heelflip"],
       randomTrick: [], 
       inputtingNewPlayer: false,
@@ -16,13 +16,14 @@ export class Play extends React.Component {
 
     this.rollTheDice = this.rollTheDice.bind(this);
     this.createPlayer = this.createPlayer.bind(this);
-    this.inputPlayerName = this.inputPlayerName.bind(this);
     this.changeInputState = this.changeInputState.bind(this);
+
+    this.myRef = React.createRef()
   }
 
 
-  createPlayer(name){
-    const playerName = toString(name);
+  createPlayer(){
+    const playerName = this.myRef.current;;
     let newPlayer = {
       name: playerName
     }
@@ -30,14 +31,10 @@ export class Play extends React.Component {
     return this.setState({players: playersList})
   }
 
-  inputPlayerName(){
-    this.state.inputtingNewPlayer ? <inputNewPlayer handleChange={this.changeInputState} handleClick={this.createPlayer}/> : null;
-  }
-
   changeInputState(){
     this.setState({inputtingNewPlayer: !this.state.inputtingNewPlayer})
   }
-  
+
   rollTheDice() {
     let randomTrick = this.state.tricks[Math.floor(Math.random()*this.state.tricks.length)];
     return this.setState({randomTrick: randomTrick});
@@ -57,11 +54,12 @@ export class Play extends React.Component {
         </div>
         <div>
         {
-        this.state.players.map((player,i) => {
-          return <Player key={'player_' + i} player={player}/>
+        this.state.players.map(player => {
+          return <Player player={player}/>
         })
         }
         </div>
+        {this.state.inputtingNewPlayer ? <InputNewPlayer ref={this.myRef} handlechange={this.changeInputState} handleclick={this.createPlayer}/> : null}
       </main>
     );
   }
