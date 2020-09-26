@@ -9,14 +9,13 @@ export class InputNewPlayer extends React.Component {
             userInput: ''
         }
 
-
         this.createAndClose = this.createAndClose.bind(this);
         this.handleUserInput = this.handleUserInput.bind(this);
     }
 
     createAndClose() {
-        this.props.handleclick(this.state.userInput);
-        this.props.handlechange();
+        this.props.handleClick(this.state.userInput);
+        this.props.handleChange();
     }
 
     handleUserInput(e){
@@ -27,10 +26,10 @@ export class InputNewPlayer extends React.Component {
 
     render() {
         return (
-            <div>
-                <input id="playerInput" type="text" placeholder="Player name.." onChange={this.handleUserInput}></input>
+            <div id="playerInput">
+                <input type="text" placeholder="Player name.." onChange={this.handleUserInput}></input>
                 <button onClick={this.createAndClose}>ok</button>
-                <button>cancel</button>
+                <button onClick={this.props.handleChange}>cancel</button>
             </div>
         )
     }
