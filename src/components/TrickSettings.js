@@ -4,19 +4,17 @@ import "../styles/css/TrickSettings.css"
 export class TrickSettings extends React.Component {
 
 
+    render() {
 
-
-
-
-    render(){
         return (
             <div className="trick-settings">
-                <label htmlFor="easy">Easy</label>
-                <input name="easy" type="checkbox" checked={this.props.tricks.easy}></input>
+                <label htmlFor="easy" >Easy</label>
+                <input name="easy" type="checkbox" onChange={this.props.handleCheck} ></input>
                 <label htmlFor="medium">Medium</label>
-                <input name="easy" type="checkbox" checked={this.props.tricks.medium}></input>
+                <input name="medium" type="checkbox" onChange={this.props.handleCheck}></input>
                 <label htmlFor="hard">Hard</label>
-                <input name="easy" type="checkbox" checked={this.props.tricks.hard}></input>
+                <input name="hard" type="checkbox" onChange={this.props.handleCheck}></input>
+                <button onClick={this.props.handleClick}>Close</button>
             </div>
         )
     }

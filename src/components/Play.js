@@ -12,50 +12,50 @@ export class Play extends React.Component {
       players: [],
       tricks: [{
         name: "ollie",
-        difficulty: "easy",
-        arena: "flatground",
+        easy: true,
+        flatground: true,
         active: true
       },
       {
         name: "nollie",
-        difficulty: "easy",
-        arena: "flatground",
+        easy: true,
+        flatground: true,
         active: true
       },
       {
         name: "FS 180",
-        difficulty: "easy",
-        arena: "flatground",
+        easy: true,
+        flatground: true,
         active: true
       },
       {
         name: "BS 180",
-        difficulty: "easy",
-        arena: "flatground",
+        easy: true,
+        flatground: true,
         active: true
       },
       {
         name: "FS Pop Shuv",
-        difficulty: "easy",
-        arena: "flatground",
+        easy: true,
+        flatground: true,
         active: true
       },
       {
         name: "Bs Pop Shuv",
-        difficulty: "easy",
-        arena: "flatground",
+        easy: true,
+        flatground: true,
         active: true
       },
       {
         name: "Kickflip",
-        difficulty: "easy",
-        arena: "flatground",
+        easy: true,
+        flatground: true,
         active: true
       },
       {
         name: "Heelflip",
-        difficulty: "easy",
-        arena: "flatground",
+        medium: true,
+        flatground: true,
         active: true
       }
       ],
@@ -68,8 +68,8 @@ export class Play extends React.Component {
     this.createPlayer = this.createPlayer.bind(this);
     this.displayInput = this.displayInput.bind(this);
     this.displayTrickSettings = this.displayTrickSettings.bind(this);
+    this.handleCheck = this.handleCheck.bind(this);
 
-    this.myRef = React.createRef()
   }
 
   rollTheDice() {
@@ -99,8 +99,19 @@ export class Play extends React.Component {
     return this.setState({ players: currentPlayers.concat(newPlayer) })
   }
 
+  handleCheck(e) {
+    const checkboxName = e.target.name;
+    this.state.tricks.map(trick => {
+      if (trick[checkboxName])
+        return trick.active = !trick.active;
+    })
+  }
+
+
+
+
   render() {
-    
+
     return (
       <main className="play">
         <h1 style={{ textDecoration: "underline" }}>{this.state.randomTrick}</h1>
@@ -109,10 +120,10 @@ export class Play extends React.Component {
         <div className="controls-container">
           {/* Displays Trick Settings */}
           <button onClick={this.displayTrickSettings}>Filter Tricks</button>
-          {this.state.displayTrickSettings ? <TrickSettings tricks={this.state.tricks} /> : null}
+          {this.state.displayTrickSettings ? <TrickSettings handleClick={this.displayTrickSettings} handleCheck={this.handleCheck} /> : null}
           {/* Displays Input For New Player Name */}
           <button onClick={this.displayInput}>Add Player</button>
-          {this.state.displayPlayerInput ? <InputNewPlayer ref={this.myRef} handleChange={this.displayInput} handleClick={this.createPlayer} /> : null}
+          {this.state.displayPlayerInput ? <InputNewPlayer  handleChange={this.displayInput} handleClick={this.createPlayer} /> : null}
           {/* Returns to Home Component View*/}
           <button onClick={this.props.handleClick}>New Game</button>
         </div>
