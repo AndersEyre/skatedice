@@ -48,7 +48,7 @@ export class Play extends React.Component {
       },
       {
         name: "Kickflip",
-        easy: true,
+        medium: true,
         flatground: true,
         active: true
       },
@@ -62,6 +62,10 @@ export class Play extends React.Component {
       randomTrick: [],
       displayPlayerInput: false,
       displayTrickSettings: false,
+      easy: true,
+      medium: true,
+      hard: true,
+
     }
 
     this.rollTheDice = this.rollTheDice.bind(this);
@@ -69,7 +73,7 @@ export class Play extends React.Component {
     this.displayInput = this.displayInput.bind(this);
     this.displayTrickSettings = this.displayTrickSettings.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
-
+    this.renderChecked = this.renderChecked.bind(this);
   }
 
   rollTheDice() {
@@ -103,11 +107,18 @@ export class Play extends React.Component {
     const checkboxName = e.target.name;
     this.state.tricks.map(trick => {
       if (trick[checkboxName])
-        return trick.active = !trick.active;
-    })
+        trick.active = !trick.active;
+        return this.setState({[checkboxName]:!this.state[checkboxName]})
+    }) 
   }
 
-
+  renderChecked(e) {
+    const checkboxName = e.target.name;
+    this.state.tricks.map(trick => {
+      if (trick.active && trick[checkboxName])
+        return true;
+    }) 
+  }
 
 
   render() {
@@ -120,7 +131,11 @@ export class Play extends React.Component {
         <div className="controls-container">
           {/* Displays Trick Settings */}
           <button onClick={this.displayTrickSettings}>Filter Tricks</button>
-          {this.state.displayTrickSettings ? <TrickSettings handleClick={this.displayTrickSettings} handleCheck={this.handleCheck} /> : null}
+          {this.state.displayTrickSettings ? <TrickSettings handleClick={this.displayTrickSettings} 
+                                                            handleCheck={this.handleCheck}
+                                                            easy={this.state.easy}
+                                                            medium={this.state.medium}
+                                                            hard={this.state.hard}/> : null}
           {/* Displays Input For New Player Name */}
           <button onClick={this.displayInput}>Add Player</button>
           {this.state.displayPlayerInput ? <InputNewPlayer  handleChange={this.displayInput} handleClick={this.createPlayer} /> : null}
