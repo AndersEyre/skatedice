@@ -14,6 +14,7 @@ export class TrickSettings extends React.Component {
                 <input name="medium" type="checkbox" onChange={this.props.handleCheck} checked={this.props.medium}></input>
                 <label htmlFor="hard">Hard</label>
                 <input name="hard" type="checkbox" onChange={this.props.handleCheck} checked={this.props.hard}></input>
+                <br></br>
                 <label htmlFor="flatground">Flatground</label>
                 <input name="flatground" type="checkbox" onChange={this.props.handleCheck} checked={this.props.flatground}></input>
                 <label htmlFor="ledge">Ledge</label>

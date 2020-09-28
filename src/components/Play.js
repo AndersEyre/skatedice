@@ -9,6 +9,7 @@ export class Play extends React.Component {
     super(props)
 
     this.state = {
+      winningscore: 10,
       players: [],
       tricks: [{
         name: "ollie",
@@ -64,7 +65,6 @@ export class Play extends React.Component {
       hard: true,
       flatground: true,
       ledge: true
-
     }
 
     this.rollTheDice = this.rollTheDice.bind(this);
@@ -96,7 +96,8 @@ export class Play extends React.Component {
 
   createPlayer(playerName) {
     let newPlayer = {
-      name: playerName
+      name: playerName,
+      score: 0,
     };
     let currentPlayers = this.state.players;
     return this.setState({ players: currentPlayers.concat(newPlayer) })
@@ -110,6 +111,13 @@ export class Play extends React.Component {
         return this.setState({[checkboxName]:!this.state[checkboxName]})
     }) 
   }
+
+  
+
+
+
+  
+
 
   // handleCheckFeature(e) {
   //   const checkboxName = e.target.name;
@@ -159,8 +167,8 @@ export class Play extends React.Component {
         <div>
           {/* Displays Added Players */}
           {
-            this.state.players.map(player => {
-              return <Player player={player} />
+            this.state.players.map((player,i) => {
+              return <Player winningscore={this.state.winningscore} player={player} key={i}/>
             })
           }
         </div>
