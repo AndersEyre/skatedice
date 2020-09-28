@@ -14,49 +14,46 @@ export class Play extends React.Component {
         name: "ollie",
         easy: true,
         flatground: true,
-        active: true
       },
       {
         name: "nollie",
         easy: true,
         flatground: true,
-        active: true
       },
       {
         name: "FS 180",
         easy: true,
         flatground: true,
-        active: true
       },
       {
         name: "BS 180",
         easy: true,
         flatground: true,
-        active: true
       },
       {
         name: "FS Pop Shuv",
         easy: true,
         flatground: true,
-        active: true
       },
       {
         name: "Bs Pop Shuv",
         easy: true,
         flatground: true,
-        active: true
       },
       {
         name: "Kickflip",
         medium: true,
         flatground: true,
-        active: true
       },
       {
         name: "Heelflip",
         medium: true,
         flatground: true,
-        active: true
+      },
+      {
+        name: "50-50",
+        easy: true,
+        ledge: true,
       }
       ],
       randomTrick: [],
@@ -65,6 +62,8 @@ export class Play extends React.Component {
       easy: true,
       medium: true,
       hard: true,
+      flatground: true,
+      ledge: true
 
     }
 
@@ -73,13 +72,13 @@ export class Play extends React.Component {
     this.displayInput = this.displayInput.bind(this);
     this.displayTrickSettings = this.displayTrickSettings.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
-    this.renderChecked = this.renderChecked.bind(this);
+    // this.renderChecked = this.renderChecked.bind(this);
   }
 
   rollTheDice() {
     let filteredTricks = [];
     this.state.tricks.map(trick => {
-      if (trick.active === true) {
+      if ((trick.easy || trick.medium || trick.hard) && (trick.flatground || trick.ledge || trick.rail || trick.drop)) {
         filteredTricks.push(trick.name);
       } let randomTrick = filteredTricks[Math.floor(Math.random() * filteredTricks.length)];
       return this.setState({ randomTrick: randomTrick });
@@ -106,19 +105,32 @@ export class Play extends React.Component {
   handleCheck(e) {
     const checkboxName = e.target.name;
     this.state.tricks.map(trick => {
-      if (trick[checkboxName])
-        trick.active = !trick.active;
+      if([checkboxName] in trick)
+        trick[checkboxName] = !trick[checkboxName];
         return this.setState({[checkboxName]:!this.state[checkboxName]})
     }) 
   }
 
-  renderChecked(e) {
-    const checkboxName = e.target.name;
-    this.state.tricks.map(trick => {
-      if (trick.active && trick[checkboxName])
-        return true;
-    }) 
-  }
+  // handleCheckFeature(e) {
+  //   const checkboxName = e.target.name;
+  //   this.state.tricks.map(trick => {
+  //     if(trick[checkboxName] && trick.active)
+  //     return this.setState({[checkboxName]: !this.state[checkboxName]})
+  //     if (trick[checkboxName]) {
+
+  //     }
+        
+      
+  //   })
+  // }
+
+  // renderChecked(e) {
+  //   const checkboxName = e.target.name;
+  //   this.state.tricks.map(trick => {
+  //     if (trick.active && trick[checkboxName])
+  //       return true;
+  //   }) 
+  // }
 
 
   render() {
@@ -135,7 +147,9 @@ export class Play extends React.Component {
                                                             handleCheck={this.handleCheck}
                                                             easy={this.state.easy}
                                                             medium={this.state.medium}
-                                                            hard={this.state.hard}/> : null}
+                                                            hard={this.state.hard}
+                                                            flatground={this.state.flatground}
+                                                            ledge={this.state.ledge}/> : null}
           {/* Displays Input For New Player Name */}
           <button onClick={this.displayInput}>Add Player</button>
           {this.state.displayPlayerInput ? <InputNewPlayer  handleChange={this.displayInput} handleClick={this.createPlayer} /> : null}
