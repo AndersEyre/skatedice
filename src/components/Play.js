@@ -24,7 +24,6 @@ export class Play extends React.Component {
       rail: true,
       normal: true,
       nollie: true,
-      
     }
 
     this.rollTheDice = this.rollTheDice.bind(this);
@@ -89,15 +88,8 @@ export class Play extends React.Component {
           {this.state.displayTrickSettings ? <TrickSettings handleClick={this.displayTrickSettings} 
                                                             handleCheck={this.handleCheck}
                                                             handleChange={this.changeScoreLimit}
-                                                            winningscore={this.state.winningscore}
-                                                            easy={this.state.easy}
-                                                            medium={this.state.medium}
-                                                            hard={this.state.hard}
-                                                            flatground={this.state.flatground}
-                                                            ledge={this.state.ledge}
-                                                            rail={this.state.rail}
-                                                            nollie={this.state.nollie}
-                                                            normal={this.state.normal}/> : null}
+                                                            parentState={this.state}
+                                                            /> : null}
           {/* Displays Input For New Player Name */}
           <button onClick={this.displayInput}>Add Player</button>
           {this.state.displayPlayerInput ? <InputNewPlayer  handleChange={this.displayInput} handleClick={this.createPlayer} /> : null}
