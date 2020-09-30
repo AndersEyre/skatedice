@@ -3,6 +3,7 @@ import { Player } from "./Player";
 import "../styles/css/Play.css";
 import InputNewPlayer from "./InputNewPlayer";
 import { TrickSettings } from "./TrickSettings";
+import tricks from "../Tricks.js"
 
 export class Play extends React.Component {
   constructor(props) {
@@ -11,52 +12,7 @@ export class Play extends React.Component {
     this.state = {
       winningscore: 10,
       players: [],
-      tricks: [{
-        name: "ollie",
-        easy: true,
-        flatground: true,
-      },
-      {
-        name: "nollie",
-        easy: true,
-        flatground: true,
-      },
-      {
-        name: "FS 180",
-        easy: true,
-        flatground: true,
-      },
-      {
-        name: "BS 180",
-        easy: true,
-        flatground: true,
-      },
-      {
-        name: "FS Pop Shuv",
-        easy: true,
-        flatground: true,
-      },
-      {
-        name: "Bs Pop Shuv",
-        easy: true,
-        flatground: true,
-      },
-      {
-        name: "Kickflip",
-        medium: true,
-        flatground: true,
-      },
-      {
-        name: "Heelflip",
-        medium: true,
-        flatground: true,
-      },
-      {
-        name: "50-50",
-        easy: true,
-        ledge: true,
-      }
-      ],
+      tricks: tricks,
       randomTrick: [],
       displayPlayerInput: false,
       displayTrickSettings: false,
@@ -64,7 +20,11 @@ export class Play extends React.Component {
       medium: true,
       hard: true,
       flatground: true,
-      ledge: true
+      ledge: true,
+      rail: true,
+      normal: true,
+      nollie: true,
+      
     }
 
     this.rollTheDice = this.rollTheDice.bind(this);
@@ -72,13 +32,13 @@ export class Play extends React.Component {
     this.displayInput = this.displayInput.bind(this);
     this.displayTrickSettings = this.displayTrickSettings.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
-    // this.renderChecked = this.renderChecked.bind(this);
+    this.changeScoreLimit = this.changeScoreLimit.bind(this);
   }
 
   rollTheDice() {
     let filteredTricks = [];
     this.state.tricks.map(trick => {
-      if ((trick.easy || trick.medium || trick.hard) && (trick.flatground || trick.ledge || trick.rail || trick.drop)) {
+      if ((trick.easy || trick.medium || trick.hard) && (trick.flatground || trick.ledge || trick.rail || trick.drop) && (trick.normal || trick.nollie || trick.switch || trick.fakie) ) {
         filteredTricks.push(trick.name);
       } let randomTrick = filteredTricks[Math.floor(Math.random() * filteredTricks.length)];
       return this.setState({ randomTrick: randomTrick });
@@ -112,34 +72,9 @@ export class Play extends React.Component {
     }) 
   }
 
-  
-
-
-
-  
-
-
-  // handleCheckFeature(e) {
-  //   const checkboxName = e.target.name;
-  //   this.state.tricks.map(trick => {
-  //     if(trick[checkboxName] && trick.active)
-  //     return this.setState({[checkboxName]: !this.state[checkboxName]})
-  //     if (trick[checkboxName]) {
-
-  //     }
-        
-      
-  //   })
-  // }
-
-  // renderChecked(e) {
-  //   const checkboxName = e.target.name;
-  //   this.state.tricks.map(trick => {
-  //     if (trick.active && trick[checkboxName])
-  //       return true;
-  //   }) 
-  // }
-
+  changeScoreLimit(e){
+    this.setState({winningscore: e.target.value})
+  }
 
   render() {
 
@@ -153,11 +88,16 @@ export class Play extends React.Component {
           <button onClick={this.displayTrickSettings}>Filter Tricks</button>
           {this.state.displayTrickSettings ? <TrickSettings handleClick={this.displayTrickSettings} 
                                                             handleCheck={this.handleCheck}
+                                                            handleChange={this.changeScoreLimit}
+                                                            winningscore={this.state.winningscore}
                                                             easy={this.state.easy}
                                                             medium={this.state.medium}
                                                             hard={this.state.hard}
                                                             flatground={this.state.flatground}
-                                                            ledge={this.state.ledge}/> : null}
+                                                            ledge={this.state.ledge}
+                                                            rail={this.state.rail}
+                                                            nollie={this.state.nollie}
+                                                            normal={this.state.normal}/> : null}
           {/* Displays Input For New Player Name */}
           <button onClick={this.displayInput}>Add Player</button>
           {this.state.displayPlayerInput ? <InputNewPlayer  handleChange={this.displayInput} handleClick={this.createPlayer} /> : null}
