@@ -34,7 +34,7 @@ export class Play extends React.Component {
     this.displayTrickSettings = this.displayTrickSettings.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
     this.changeScoreLimit = this.changeScoreLimit.bind(this);
-    this.displayWin = this.shareWin.bind(this);
+    this.displayWin = this.displayWin.bind(this);
   }
 
   rollTheDice() {
@@ -94,7 +94,9 @@ export class Play extends React.Component {
 
     return (
       <main className="play">
-        <h1 style={{ textDecoration: "underline" }}>{this.state.randomTrick}</h1>
+        <div className="trick-container">
+          <h1 style={{ textDecoration: "underline" }}>{this.state.randomTrick}</h1>
+        </div>
         <br></br>
         <button onClick={this.rollTheDice}>ROLL THE DICE</button>
         <div className="controls-container">

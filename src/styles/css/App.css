@@ -1,5 +1,31 @@
 .App {
   text-align: center;
-  background-color: salmon;
+  background-image: url("../images/mikael-kristenson-2YWymeP3cJM-unsplash.jpg");
+  background-size: cover;
+  background-position: bottom;
+}
+
+.rules-container {
+  background: rgba(37, 36, 35, 0.8);
+  border-radius: 10px;
+  margin: 20px;
+  width: 20%;
+}
+
+.rules-container ul li {
+  color: white;
+  font-weight: lighter;
+  font-size: 50%;
+  list-style-position: inside;
+  margin-left: 5px;
+}
+
+button {
+  border-radius: 5px;
+  background-color: #f28100;
+  color: white;
+  padding: 15px 30px;
+  margin: 5px;
+  border: 1px black solid;
 }
 /*# sourceMappingURL=App.css.map */

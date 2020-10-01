@@ -1,12 +1,14 @@
 .trick-settings {
     position: absolute;
-    top: 50%;
-    right: 50%;
-    background-color: black;
+    left: 40%;
+    top: 40%;
+    width: 20%;
+    background: rgb(37, 36, 35);
     z-index: 100;
     color: white;
-    text-align: left;
-    line-height: 120%;
+    text-align: center;
+    line-height: 130%;
+    border-radius: 10px;
 
     label{
         font-size: 80%;

@@ -18,10 +18,6 @@ export class TrickSettings extends React.Component {
 
         return (
             <div className="trick-settings">
-                <label htmlFor="winning-score">Winning Score</label>
-                <select onChange={this.props.handleChange} value={this.props.parentState.winningScore}>
-                    {optionItems}
-                </select>
                 <h2>Difficulty</h2>
                 <label htmlFor="easy">Easy</label>
                 <input name="easy" type="checkbox" onChange={this.props.handleCheck} checked={this.props.parentState.easy}></input>
@@ -43,6 +39,11 @@ export class TrickSettings extends React.Component {
                 <input name="normal" type="checkbox" onChange={this.props.handleCheck} checked={this.props.parentState.normal}></input>
                 <label htmlFor="nollie">Nollie</label>
                 <input name="nollie" type="checkbox" onChange={this.props.handleCheck} checked={this.props.parentState.nollie}></input>
+                <br></br>
+                <label htmlFor="winning-score">Winning Score</label>
+                <select onChange={this.props.handleChange} value={this.props.parentState.winningScore}>
+                    {optionItems}
+                </select>
                 <br></br>
                 <button onClick={this.props.handleClick}>Close</button>
             </div>

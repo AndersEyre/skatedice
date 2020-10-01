@@ -9,7 +9,9 @@ export class Home extends React.Component {
     return (
       <header className="home">
         <h1>Skate Dice</h1>
+        <p>over 200 combinations of tricks</p>
         <div className="rules-container">
+          <p>The Rules</p>
           <ul>
             <li>set a score</li>
             <li>you land a trick you get a point</li>
