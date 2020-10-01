@@ -19,7 +19,7 @@ export class TrickSettings extends React.Component {
         return (
             <div className="trick-settings">
                 <label htmlFor="winning-score">Winning Score</label>
-                <select onChange={this.props.handleChange} value={this.props.parentState.winningscore}>
+                <select onChange={this.props.handleChange} value={this.props.parentState.winningScore}>
                     {optionItems}
                 </select>
                 <h2>Difficulty</h2>

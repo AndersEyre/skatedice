@@ -3,14 +3,16 @@ import { Player } from "./Player";
 import "../styles/css/Play.css";
 import InputNewPlayer from "./InputNewPlayer";
 import { TrickSettings } from "./TrickSettings";
-import tricks from "../Tricks.js"
+import { Winner } from "./Winner";
+import tricks from "../Tricks.js";
 
 export class Play extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      winningscore: 10,
+      winningScore: 10,
+      displayWin: false,
       players: [],
       tricks: tricks,
       randomTrick: [],
@@ -32,6 +34,8 @@ export class Play extends React.Component {
     this.displayTrickSettings = this.displayTrickSettings.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
     this.changeScoreLimit = this.changeScoreLimit.bind(this);
+    this.handleWin = this.handleWin.bind(this);
+    this.displayWin = this.displayWin.bind(this);
   }
 
   rollTheDice() {
@@ -72,7 +76,19 @@ export class Play extends React.Component {
   }
 
   changeScoreLimit(e){
-    this.setState({winningscore: e.target.value})
+    this.setState({winningScore: e.target.value})
+  }
+
+  displayWin(){
+    this.setState({displayWin: !this.state.displaywin})
+  }
+
+  handleWin(){
+    window.FB.ui({
+      method: 'share',
+      href: 'facebook.com/anders.eyre/',
+      caption: 'i am the smartest man alive'
+    }, function(response){});
   }
 
   render() {
@@ -100,10 +116,11 @@ export class Play extends React.Component {
           {/* Displays Added Players */}
           {
             this.state.players.map((player,i) => {
-              return <Player winningscore={this.state.winningscore} player={player} key={i}/>
+              return <Player displayWin={this.displayWin} winningScore={this.state.winningScore} player={player} key={i}/>
             })
           }
         </div>
+        {this.state.displayWin ? <Winner handleWin={this.handleWin}/> : null}
       </main>
     );
   }

@@ -16,8 +16,8 @@ export class Player extends React.Component {
         this.setState({
           score: this.state.score + 1
         });
-        if(this.state.score === this.props.winningscore - 1)
-        alert(this.props.player.name + ' wins!')
+        if(this.state.score === this.props.winningScore - 1)
+        this.props.displayWin()
       };
       
       decrement() {

@@ -28,6 +28,17 @@
     <link rel="stylesheet" href="./reset.css" />
   </head>
   <body>
+    <script>
+      window.fbAsyncInit = function() {
+        window.FB.init({
+          appId            : '339031170765427',
+          autoLogAppEvents : true,
+          xfbml            : true,
+          version          : 'v8.0'
+        });
+      };
+    </script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
