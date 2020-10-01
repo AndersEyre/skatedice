@@ -34,8 +34,7 @@ export class Play extends React.Component {
     this.displayTrickSettings = this.displayTrickSettings.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
     this.changeScoreLimit = this.changeScoreLimit.bind(this);
-    this.handleWin = this.handleWin.bind(this);
-    this.displayWin = this.displayWin.bind(this);
+    this.displayWin = this.shareWin.bind(this);
   }
 
   rollTheDice() {
@@ -83,7 +82,7 @@ export class Play extends React.Component {
     this.setState({displayWin: !this.state.displaywin})
   }
 
-  handleWin(){
+  shareWin(){
     window.FB.ui({
       method: 'share',
       href: 'facebook.com/anders.eyre/',
@@ -120,7 +119,7 @@ export class Play extends React.Component {
             })
           }
         </div>
-        {this.state.displayWin ? <Winner handleWin={this.handleWin}/> : null}
+        {this.state.displayWin ? <Winner shareWin={this.shareWin}/> : null}
       </main>
     );
   }
