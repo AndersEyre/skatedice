@@ -1,7 +1,8 @@
 import React from "react";
-import {Home} from "./Home" 
-import {Play} from "./Play"
+import {Home} from "./Home";
+import {Play} from "./Play";
 import "../styles/css/App.css";
+
 
 
 class App extends React.Component {

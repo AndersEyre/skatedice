@@ -9,7 +9,7 @@ export class Home extends React.Component {
     return (
       <header className="home">
         <h1>Skate Dice</h1>
-        <p>over 200 combinations of tricks</p>
+        <p>spice up your sesh with over 200 combinations of tricks!!</p>
         <div className="rules-container">
           <p>The Rules</p>
           <ul>

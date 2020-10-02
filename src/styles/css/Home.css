@@ -13,17 +13,21 @@
   margin: 20px 0px;
 }
 
-.home li {
-  font-size: 80%;
-  margin: 10px 0px;
+.rules-container {
+  background: rgba(37, 36, 35, 0.8);
+  border-radius: 10px;
+  margin: 20px;
+  width: 20%;
 }
 
-.home button {
-  margin: 20px 0px;
-}
-
-.rules-container li {
+.rules-container ul li {
+  color: white;
+  font-weight: lighter;
+  font-size: 50%;
+  margin-left: 5px;
   text-align: left;
   list-style: disc;
+  margin: 10px 0px;
+  list-style-position: inside;
 }
 /*# sourceMappingURL=Home.css.map */

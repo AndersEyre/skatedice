@@ -1,8 +1,7 @@
 .trick-settings {
   position: absolute;
-  left: 40%;
-  top: 40%;
-  width: 20%;
+  top: 35%;
+  width: 300px;
   background: #252423;
   z-index: 100;
   color: white;
@@ -13,5 +12,11 @@
 
 .trick-settings label {
   font-size: 80%;
+}
+
+.trick-settings select {
+  border-radius: 5px;
+  margin-left: 5px;
+  font-weight: 700;
 }
 /*# sourceMappingURL=TrickSettings.css.map */

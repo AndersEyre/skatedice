@@ -97,7 +97,6 @@ export class Play extends React.Component {
         <div className="trick-container">
           <h1 style={{ textDecoration: "underline" }}>{this.state.randomTrick}</h1>
         </div>
-        <br></br>
         <button onClick={this.rollTheDice}>ROLL THE DICE</button>
         <div className="controls-container">
           {/* Displays Trick Settings */}

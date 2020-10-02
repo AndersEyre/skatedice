@@ -41,7 +41,7 @@ export class TrickSettings extends React.Component {
                 <input name="nollie" type="checkbox" onChange={this.props.handleCheck} checked={this.props.parentState.nollie}></input>
                 <br></br>
                 <label htmlFor="winning-score">Winning Score</label>
-                <select onChange={this.props.handleChange} value={this.props.parentState.winningScore}>
+                <select  onChange={this.props.handleChange} value={this.props.parentState.winningScore}>
                     {optionItems}
                 </select>
                 <br></br>

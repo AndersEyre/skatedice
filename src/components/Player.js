@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/css/Player.css"
 
 export class Player extends React.Component {
     constructor(props){
@@ -29,7 +30,7 @@ export class Player extends React.Component {
 
     render() {
         return (
-            <div style={{ display: 'inline-block', margin: '10px' }}>
+            <div className="player" style={{ display: 'inline-block', margin: '10px' }}>
                 <h2>{this.props.player.name}</h2>
                 <h3>{this.state.score}</h3>
                 <button onClick={this.decrement}> - </button>

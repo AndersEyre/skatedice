@@ -26,7 +26,7 @@ export class InputNewPlayer extends React.Component {
 
     render() {
         return (
-            <div id="playerInput">
+            <div className="player-input">
                 <input type="text" placeholder="Player name.." onChange={this.handleUserInput}></input>
                 <button onClick={this.createAndClose}>ok</button>
                 <button onClick={this.props.handleChange}>cancel</button>

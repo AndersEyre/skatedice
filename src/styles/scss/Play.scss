@@ -7,6 +7,25 @@
     font-size: calc(10px + 2vmin);
     color: white;
 
-    
+    .controls-container{
+
+        button {
+            padding: 7px 12px;
+        }
+    }
+
+    .trick-container{
+        border-radius: 5px;
+        border: 1px dashed grey;
+        font-family: 'Secular One', sans-serif;
+        font-size: 50px;
+        width: 500px;
+        height: 70px;
+        background: rgba(37, 36, 35, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0px;
+    }
 }
 

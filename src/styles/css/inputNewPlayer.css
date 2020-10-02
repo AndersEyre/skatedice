@@ -1,9 +1,14 @@
-#playerInput {
+.player-input {
   position: absolute;
-  top: 50%;
-  right: 50%;
+  top: 63%;
+  right: 44.35%;
   background-color: black;
   z-index: 100;
   color: white;
+}
+
+.player-input input {
+  display: block;
+  height: 30px;
 }
 /*# sourceMappingURL=inputNewPlayer.css.map */
