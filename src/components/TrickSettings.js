@@ -44,8 +44,7 @@ export class TrickSettings extends React.Component {
                 <select  onChange={this.props.handleChange} value={this.props.parentState.winningScore}>
                     {optionItems}
                 </select>
-                <br></br>
-                <button onClick={this.props.handleClick}>Close</button>
+                <button id="close-button" onClick={this.props.handleClick}>Close</button>
             </div>
         )
     }

@@ -2,8 +2,8 @@
     "version": 3,
     "mappings": "AAAA,AAAA,aAAa,CAAC;EACV,QAAQ,EAAE,QAAQ;EAClB,GAAG,EAAE,GAAG;EACR,KAAK,EAAE,MAAM;EACb,gBAAgB,EAAE,KAAK;EACvB,OAAO,EAAE,GAAG;EACZ,KAAK,EAAE,KAAK;CAOf;;AAbD,AAQI,aARS,CAQT,KAAK,CAAC;EACF,OAAO,EAAE,KAAK;EACd,MAAM,EAAE,IAAI;CAEf",
     "sources": [
-        "../scss/inputNewPlayer.scss"
+        "../scss/InputNewPlayer.scss"
     ],
     "names": [],
-    "file": "inputNewPlayer.css"
+    "file": "InputNewPlayer.css"
 }
