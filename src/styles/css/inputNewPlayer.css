@@ -1,7 +1,11 @@
 .player-input {
   position: absolute;
-  top: 63%;
-  right: 44.35%;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 62%;
+  width: 172.8px;
   background-color: black;
   z-index: 100;
   color: white;
@@ -10,5 +14,6 @@
 .player-input input {
   display: block;
   height: 30px;
+  width: auto;
 }
-/*# sourceMappingURL=InputNewPlayer.css.map */
+/*# sourceMappingURL=inputNewPlayer.css.map */

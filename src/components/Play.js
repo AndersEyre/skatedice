@@ -112,7 +112,7 @@ export class Play extends React.Component {
           {/* Returns to Home Component View*/}
           <button onClick={this.props.handleClick}>New Game</button>
         </div>
-        <div>
+        <div className="players">
           {/* Displays Added Players */}
           {
             this.state.players.map((player,i) => {

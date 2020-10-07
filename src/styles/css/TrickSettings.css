@@ -1,6 +1,10 @@
 .trick-settings {
   position: absolute;
-  top: 35%;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 38%;
   width: 300px;
   background: #252423;
   z-index: 100;
@@ -13,7 +17,6 @@
 .trick-settings h2 {
   margin-left: 10px;
   letter-spacing: 4px;
-  text-decoration: underline;
 }
 
 .trick-settings label {
